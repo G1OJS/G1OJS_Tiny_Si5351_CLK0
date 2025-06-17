@@ -132,7 +132,7 @@ void G1OJS_Tiny_Si5351_CLK0::set_freq_Hz(uint32_t fout_Hz) { // set frequency fo
 
   }
 
-// Helper function writes one byte to the specified register,
+// Helper function I2CFlexiWrite writes one byte to the specified register,
 // and optionally a further seven bytes to the following sequential registers
 void G1OJS_Tiny_Si5351_CLK0::I2CFlexiWrite(uint8_t reg, uint8_t b0, 
             bool include_b1_to_b7 = false, 
@@ -143,13 +143,8 @@ void G1OJS_Tiny_Si5351_CLK0::I2CFlexiWrite(uint8_t reg, uint8_t b0,
     Wire.write(reg);
     Wire.write(b0);
     if(include_b1_to_b7) {
-      Wire.write(b1);
-      Wire.write(b2);
-      Wire.write(b3);
-      Wire.write(b4);
-      Wire.write(b5);
-      Wire.write(b6);
-      Wire.write(b7);
+      Wire.write(b1); Wire.write(b2); Wire.write(b3); Wire.write(b4);
+      Wire.write(b5); Wire.write(b6); Wire.write(b7);
     }
     Wire.endTransmission();
 }
