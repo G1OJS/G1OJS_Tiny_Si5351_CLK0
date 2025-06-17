@@ -45,8 +45,8 @@
 #include "Arduino.h"
 #include "Wire.h"
 
-#define CorrFact 0.999658117	        // Correction factor ( = fout_Hz / freq measured when CorrFact = 1.0)
-#define i2c_bus_address 0x60		// address of Si5351 on the i2c bus
+#define CorrFact 0.999658117	// Correction factor ( = fout_Hz / freq measured when CorrFact = 1.0)
+#define i2c_bus_address 0x60	// address of Si5351 on the i2c bus
 
 
 void G1OJS_Tiny_Si5351_CLK0::set_freq_Hz(uint32_t fout_Hz) { // set frequency fout_Hz (CLK0 only)
@@ -120,15 +120,15 @@ void G1OJS_Tiny_Si5351_CLK0::set_freq_Hz(uint32_t fout_Hz) { // set frequency fo
     	(uint8_t) (MSNA_P2 & 0xFF)			// Reg 33 = MSNA_P2[7:0]
         );
     
-    // power up clock 0, select PLLA etc
-    I2CFlexiWrite(16, 0x4F);            // CLK0, PLLA, MS0 operates in integer mode, Output Clock 0 is not inverted, Select MultiSynth 0 as the source for CLK0 and 8 mA drive
+    // CLK0, PLLA, MS0 (Output MS, /6) in integer mode, CLK0 not inverted, MS0 is CLK0 source, 8mA drive
+    I2CFlexiWrite(16, 0x4F);
 
     // Figure 10 Box 5: Reset PLLA (we are not using PLLB)
-    delayMicroseconds(500);  			// Allow registers to settle before resetting the PLL
+    delayMicroseconds(500);  		// Allow registers to settle before resetting the PLL
     I2CFlexiWrite(177, 0x20);  		// Reset the PLL
 
-    // Figure 10 Box 6: Enable clock 1 output
-    I2CFlexiWrite(3, 0x00);            	// Output Enable Control - just clock 0 (note that ClockBuilder uses 0 for all 8 bits)
+    // Figure 10 Box 6: Enable clock 0 output
+    I2CFlexiWrite(3, 0xFE);            	
 
   }
 
