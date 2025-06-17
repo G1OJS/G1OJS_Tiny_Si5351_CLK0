@@ -1,0 +1,9 @@
+# Data types (KEYWORD1)
+
+# Library class and methods (KEYWORD2)
+G1OJS_Tiny_Si5351_CLK0  KEYWORD2
+set_freq_Hz  KEYWORD2
+
+# Constants (LITERAL1)
+CorrFact  LITERAL1
+i2c_bus_address  LITERAL1
