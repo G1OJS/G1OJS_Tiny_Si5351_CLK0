@@ -27,8 +27,9 @@
 // Code is minimised by accepting the following limitations
 //  - CLK0 only
 //  - No checks for output frequencies above 150MHz or below 100MHz
-//  - V1.0.0 tested (functional only) only between 128.7 and 146.7 MHz
-//  - Correction factor, Crystal frequency and Crystal load capacitance for your specific Si5351 unit are all hard coded below (no functions to set them)
+//  - Limited testing, and only between 128.7 and 146.7 MHz
+//  - Correction factor, Crystal frequency, Crystal load capacitance 
+//    for your specific Si5351 unit, and output level are all hard coded below (no functions to set them)
 //  - Calculation and register setting is done in one single function (no registers are pre-set for speed)
 //  - The Si5351 is assumed to be initialised (no waiting -> no need for an IC2 read function)
 //
