@@ -32,9 +32,10 @@
 //  - Calculation and register setting is done in one single function (no registers are pre-set for speed)
 //  - The Si5351 is assumed to be initialised (no waiting -> no need for an IC2 read function)
 //
-//  References:
+//  References cited in G1OJS_Tiny_Si5351_CLK0.cpp:
 //   AN619 application note at https://www.skyworksinc.com/-/media/Skyworks/SL/documents/public/application-notes/AN619.pdf
 //   Si5351A-B Data Sheet https://d1ehax0mqsd4rz.cloudfront.net/-/media/SkyWorks/SL/documents/public/data-sheets/Si5351-B.pdf
+//  Great resource for understanding:
 //   RfZero(TM) pages https://rfzero.net/tutorials/si5351a/
 //=====================
 
