@@ -45,7 +45,7 @@
 #include "Arduino.h"
 #include "Wire.h"
 
-#define G1OJS_SI5351_CLK0_VERSION "1.0.0"
+#define G1OJS_SI5351_CLK0_VERSION "1.0.1"
 
 
 class G1OJS_Tiny_Si5351_CLK0{
